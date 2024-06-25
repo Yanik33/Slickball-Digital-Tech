@@ -1,0 +1,74 @@
+[gd_scene load_steps=16 format=3 uid="uid://cke7elrxs1wlw"]
+
+[ext_resource type="Texture2D" uid="uid://cas6er2u6vqn1" path="res://assets/Basketball bounce0000.png" id="1_c4d1o"]
+[ext_resource type="Texture2D" uid="uid://d2167vemuadj8" path="res://assets/Basketball bounce0001.png" id="2_mvlnt"]
+[ext_resource type="Texture2D" uid="uid://cohqqi2tu6l1l" path="res://assets/Basketball bounce0002.png" id="3_aynb0"]
+[ext_resource type="Texture2D" uid="uid://jq871bqeiv7e" path="res://assets/Basketball bounce0003.png" id="4_3v0aj"]
+[ext_resource type="Texture2D" uid="uid://8tvtujhrl7no" path="res://assets/Basketball bounce0004.png" id="5_4fn2s"]
+[ext_resource type="Texture2D" uid="uid://d2j7yvad7aicm" path="res://assets/Basketball bounce0005.png" id="6_kb8bo"]
+[ext_resource type="Texture2D" uid="uid://c04pn3reqo5em" path="res://assets/Basketball bounce0006.png" id="7_blcx8"]
+[ext_resource type="Texture2D" uid="uid://csdj5rajy041m" path="res://assets/Basketball bounce0007.png" id="8_v68i5"]
+[ext_resource type="Texture2D" uid="uid://dt1pw46ucjv86" path="res://assets/Basketball bounce0008.png" id="9_7rs5v"]
+[ext_resource type="Texture2D" uid="uid://0kmhkigqfs5u" path="res://assets/Basketball bounce0009.png" id="10_113wf"]
+[ext_resource type="Texture2D" uid="uid://cp4cfsigqc7d2" path="res://assets/Basketball bounce0010.png" id="11_menwj"]
+[ext_resource type="Texture2D" uid="uid://bxm0kvl1ry213" path="res://assets/Basketball bounce0011.png" id="12_k2rhs"]
+[ext_resource type="Texture2D" uid="uid://b117woi44ofhn" path="res://assets/Basketball bounce0012.png" id="13_gxvge"]
+[ext_resource type="Texture2D" uid="uid://qvmf3r46hfug" path="res://assets/Basketball bounce0013.png" id="14_nvlv8"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_01w7h"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_c4d1o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_mvlnt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_aynb0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_3v0aj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_4fn2s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_kb8bo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_blcx8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_v68i5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_7rs5v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_113wf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_menwj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_k2rhs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_gxvge")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_nvlv8")
+}],
+"loop": true,
+"name": &"default",
+"speed": 20.0
+}]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(44, -14)
+sprite_frames = SubResource("SpriteFrames_01w7h")
+frame = 11
+frame_progress = 0.149199

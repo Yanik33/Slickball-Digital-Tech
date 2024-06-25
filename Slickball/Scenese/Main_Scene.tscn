@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://r6q5sjvtwbwm"]
+
+[ext_resource type="PackedScene" uid="uid://d2best8o8kf2k" path="res://Scenese/Court.tscn" id="1_26mub"]
+[ext_resource type="PackedScene" uid="uid://ctpoq8w0716x6" path="res://Scenese/Player1.tscn" id="2_1fte8"]
+[ext_resource type="PackedScene" uid="uid://biimbar21jdr2" path="res://Scenese/Player2.tscn" id="3_7qnyb"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="StaticBody2D" parent="." instance=ExtResource("1_26mub")]
+position = Vector2(0, -17)
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("2_1fte8")]
+position = Vector2(343, 330)
+
+[node name="CharacterBody2D2" parent="." instance=ExtResource("3_7qnyb")]
+position = Vector2(730, 319)
