@@ -1,0 +1,92 @@
+[gd_scene load_steps=19 format=3 uid="uid://pmixrqejxfox"]
+
+[ext_resource type="Script" path="res://Scripts/Basketball.gd" id="1_a681w"]
+[ext_resource type="Texture2D" uid="uid://jq871bqeiv7e" path="res://assets/Basketball bounce0003.png" id="1_sbd5t"]
+[ext_resource type="Texture2D" uid="uid://cas6er2u6vqn1" path="res://assets/Basketball bounce0000.png" id="2_2712x"]
+[ext_resource type="Texture2D" uid="uid://d2167vemuadj8" path="res://assets/Basketball bounce0001.png" id="3_0885s"]
+[ext_resource type="Texture2D" uid="uid://cohqqi2tu6l1l" path="res://assets/Basketball bounce0002.png" id="4_mawxx"]
+[ext_resource type="Texture2D" uid="uid://8tvtujhrl7no" path="res://assets/Basketball bounce0004.png" id="5_24gv3"]
+[ext_resource type="Texture2D" uid="uid://d2j7yvad7aicm" path="res://assets/Basketball bounce0005.png" id="6_qmo0c"]
+[ext_resource type="Texture2D" uid="uid://c04pn3reqo5em" path="res://assets/Basketball bounce0006.png" id="7_08sna"]
+[ext_resource type="Texture2D" uid="uid://csdj5rajy041m" path="res://assets/Basketball bounce0007.png" id="8_mmqvc"]
+[ext_resource type="Texture2D" uid="uid://dt1pw46ucjv86" path="res://assets/Basketball bounce0008.png" id="9_efx7k"]
+[ext_resource type="Texture2D" uid="uid://0kmhkigqfs5u" path="res://assets/Basketball bounce0009.png" id="10_enpxb"]
+[ext_resource type="Texture2D" uid="uid://cp4cfsigqc7d2" path="res://assets/Basketball bounce0010.png" id="11_y2cqa"]
+[ext_resource type="Texture2D" uid="uid://bxm0kvl1ry213" path="res://assets/Basketball bounce0011.png" id="12_vu66a"]
+[ext_resource type="Texture2D" uid="uid://b117woi44ofhn" path="res://assets/Basketball bounce0012.png" id="13_64gos"]
+[ext_resource type="Texture2D" uid="uid://qvmf3r46hfug" path="res://assets/Basketball bounce0013.png" id="14_1nbsm"]
+[ext_resource type="Texture2D" uid="uid://5wyeduqdnimf" path="res://assets/Basketball normal.png" id="16_hhvmh"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rtof8"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_n73kd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_2712x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_0885s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_mawxx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_sbd5t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_24gv3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_qmo0c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_08sna")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_mmqvc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_efx7k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_enpxb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_y2cqa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_vu66a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_64gos")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_1nbsm")
+}],
+"loop": true,
+"name": &"bounce",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("16_hhvmh")
+}],
+"loop": true,
+"name": &"normal",
+"speed": 5.0
+}]
+
+[node name="RigidBody2D" type="RigidBody2D"]
+scale = Vector2(2, 2)
+script = ExtResource("1_a681w")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_rtof8")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(7.5, -54.5)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_n73kd")
+animation = &"bounce"
+autoplay = "bounce"

@@ -8,9 +8,18 @@
 
 [node name="StaticBody2D" parent="." instance=ExtResource("1_26mub")]
 position = Vector2(0, -17)
+collision_layer = 3
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("2_1fte8")]
-position = Vector2(343, 330)
+position = Vector2(686, 374)
 
 [node name="CharacterBody2D2" parent="." instance=ExtResource("3_7qnyb")]
-position = Vector2(730, 319)
+position = Vector2(309, 373)
+collision_layer = 2
+collision_mask = 2
+
+[node name="P1_Hoop" type="Node2D" parent="."]
+position = Vector2(36, 288)
+
+[node name="P2_Hoop" type="Node2D" parent="."]
+position = Vector2(1120, 284)

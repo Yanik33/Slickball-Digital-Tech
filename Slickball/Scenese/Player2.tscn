@@ -20,3 +20,6 @@ offset_bottom = -117.0
 scale = Vector2(3.20196, 7.37295)
 color = Color(0, 0.0392157, 0.278431, 1)
 metadata/_edit_use_anchors_ = true
+
+[node name="shoot_point2" type="Node2D" parent="."]
+position = Vector2(82, -100)
