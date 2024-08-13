@@ -7,10 +7,19 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	#if $RayCast2D.is_colliding():
-		#$AnimatedSprite2D.play("bounce")
-	#else:
-		#$AnimatedSprite2D.play("normal")
+func _physics_process(delta):
+	if $RayCast2D.is_colliding():
+		$AnimatedSprite2D.play("bounce")
+	else :
+		$AnimatedSprite2D.play("normal")
+
 		
 	rotation = clamp(0,0,0)
+
+
+func _on_area_2d_area_entered(area):
+	if area.has_meta("scorep1"):
+		print("SCORE Player 1")
+	if area.has_meta("scorep2"):
+		print("SCORE Player 2")	
+
