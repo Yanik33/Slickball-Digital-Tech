@@ -1,27 +1,70 @@
-[gd_scene load_steps=4 format=3 uid="uid://ctpoq8w0716x6"]
+[gd_scene load_steps=8 format=3 uid="uid://ctpoq8w0716x6"]
 
 [ext_resource type="Script" path="res://Scripts/Player1.gd" id="1_4oyr1"]
 [ext_resource type="PackedScene" uid="uid://pmixrqejxfox" path="res://Scenese/Basketball.tscn" id="2_veftn"]
+[ext_resource type="Texture2D" uid="uid://belm5s0f7kiqf" path="res://assets/Lebron James 4.png" id="3_b56lx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a52hj"]
 size = Vector2(64, 147.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rkfjp"]
+size = Vector2(27, 87.75)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eukpk"]
+size = Vector2(28.5, 87.75)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yxd1h"]
+size = Vector2(66.2611, 24)
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
 script = ExtResource("1_4oyr1")
 ball_scene = ExtResource("2_veftn")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(22, -63.25)
+position = Vector2(0, -61)
 shape = SubResource("RectangleShape2D_a52hj")
 
 [node name="ColorRect" type="ColorRect" parent="."]
-offset_left = -9.0
-offset_top = -137.0
+visible = false
+offset_left = -9.00002
+offset_top = -136.0
 offset_right = 11.0
-offset_bottom = -117.0
+offset_bottom = -116.0
 scale = Vector2(3.20196, 7.37295)
 color = Color(0.490196, 0.654902, 1, 1)
 metadata/_edit_use_anchors_ = true
 
-[node name="shoot_point" type="Node2D" parent="."]
-position = Vector2(-50, -101)
+[node name="Marker2D" type="Marker2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Marker2D"]
+position = Vector2(0, -94)
+scale = Vector2(1.7, 1.783)
+texture = ExtResource("3_b56lx")
+
+[node name="Area2D" type="Area2D" parent="Marker2D/Sprite2D"]
+position = Vector2(-15.3555, 40.9479)
+scale = Vector2(0.56872, 0.56872)
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Marker2D/Sprite2D/Area2D"]
+position = Vector2(-19.0418, -11)
+shape = SubResource("RectangleShape2D_rkfjp")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Marker2D/Sprite2D/Area2D"]
+position = Vector2(74.3556, -10.9884)
+shape = SubResource("RectangleShape2D_eukpk")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Marker2D/Sprite2D/Area2D"]
+position = Vector2(26.9675, -108)
+shape = SubResource("RectangleShape2D_yxd1h")
+
+[node name="shoot_point" type="Node2D" parent="Marker2D/Sprite2D"]
+position = Vector2(-39.8104, -3.98104)
+scale = Vector2(0.56872, 0.56872)
+
+[node name="ball_placement" type="RemoteTransform2D" parent="Marker2D/Sprite2D"]
+position = Vector2(-29.0047, 51.7536)
+scale = Vector2(0.56872, 0.56872)
+
+[connection signal="body_entered" from="Marker2D/Sprite2D/Area2D" to="." method="_on_area_2d_body_entered"]

@@ -1,4 +1,13 @@
-[gd_scene load_steps=9 format=3 uid="uid://d2best8o8kf2k"]
+[gd_scene load_steps=18 format=3 uid="uid://d2best8o8kf2k"]
+
+[ext_resource type="Script" path="res://Scripts/Court.gd" id="1_l3jqv"]
+[ext_resource type="Texture2D" uid="uid://02qtfhbioql0" path="res://assets/SlickBall - Court Stage.png" id="1_vefdk"]
+[ext_resource type="Texture2D" uid="uid://cgsthngk4cpwk" path="res://assets/SlickBall - Court Stage (no background).png" id="2_tnal6"]
+[ext_resource type="Texture2D" uid="uid://ds654qv06pvl0" path="res://assets/backboard0000.png" id="4_eql5a"]
+[ext_resource type="Texture2D" uid="uid://cvo6pri3qyfso" path="res://assets/backboard0001.png" id="5_8gjmd"]
+[ext_resource type="Texture2D" uid="uid://dp8pm0b0aei37" path="res://assets/backboard0002.png" id="6_cmwra"]
+[ext_resource type="Texture2D" uid="uid://nsijhj3ryxmr" path="res://assets/backboard0003.png" id="7_vvepx"]
+[ext_resource type="Texture2D" uid="uid://cp2igsutv86a3" path="res://assets/backboard0004.png" id="8_1jjqj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wtexm"]
 size = Vector2(1152, 78)
@@ -10,27 +19,61 @@ size = Vector2(42, 649)
 size = Vector2(43, 649)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mn32g"]
-size = Vector2(11, 2)
+size = Vector2(14.375, 2)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ixvqu"]
-size = Vector2(26, 109)
+size = Vector2(26, 135.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4jhxr"]
 size = Vector2(26, 109)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a2dku"]
-size = Vector2(32, 1.5)
+size = Vector2(32, 0.75)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1jnlj"]
-size = Vector2(31, 1.5)
+size = Vector2(28.4703, 0.75)
 
-[node name="StaticBody2D" type="StaticBody2D"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_o45ko"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_eql5a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_8gjmd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_cmwra")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_vvepx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_1jjqj")
+}],
+"loop": false,
+"name": &"Shot",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_eql5a")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="StaticBody2D" type="StaticBody2D" node_paths=PackedStringArray("p1_hoop")]
+script = ExtResource("1_l3jqv")
+p1_hoop = NodePath("AnimatedSprite2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(576, 609)
 shape = SubResource("RectangleShape2D_wtexm")
 
 [node name="ColorRect" type="ColorRect" parent="."]
+visible = false
 offset_top = 496.0
 offset_right = 1155.0
 offset_bottom = 664.0
@@ -74,7 +117,7 @@ scale = Vector2(0.985751, 1.00532)
 color = Color(0.635294, 0.635294, 0.635294, 1)
 
 [node name="CollisionShape2D6" type="CollisionShape2D" parent="."]
-position = Vector2(83.875, 308)
+position = Vector2(82.1875, 308)
 shape = SubResource("RectangleShape2D_mn32g")
 
 [node name="CollisionShape2D7" type="CollisionShape2D" parent="."]
@@ -90,19 +133,26 @@ position = Vector2(1054, 305)
 shape = SubResource("RectangleShape2D_mn32g")
 
 [node name="CollisionShape2D10" type="CollisionShape2D" parent="."]
-position = Vector2(39, 298)
+position = Vector2(39, 284.75)
 shape = SubResource("RectangleShape2D_ixvqu")
 
 [node name="CollisionShape2D11" type="CollisionShape2D" parent="."]
 position = Vector2(1117, 298)
 shape = SubResource("RectangleShape2D_4jhxr")
 
+[node name="SlickBall-CourtStage" type="Sprite2D" parent="."]
+visible = false
+z_index = -1
+position = Vector2(570, 365.5)
+scale = Vector2(1.13148, 1.00139)
+texture = ExtResource("1_vefdk")
+
 [node name="Area2D" type="Area2D" parent="."]
 position = Vector2(173, 128)
 metadata/scorep1 = true
 
 [node name="P1_Score" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-68, 186)
+position = Vector2(-68, 189.625)
 shape = SubResource("RectangleShape2D_a2dku")
 
 [node name="Area2D2" type="Area2D" parent="."]
@@ -110,5 +160,21 @@ position = Vector2(1033, 330)
 metadata/scorep2 = true
 
 [node name="P2_Score" type="CollisionShape2D" parent="Area2D2"]
-position = Vector2(0, -17)
+position = Vector2(1, -15.375)
+scale = Vector2(1.06286, 1)
 shape = SubResource("RectangleShape2D_1jnlj")
+
+[node name="SlickBall-CourtStage(noBackground)" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(568, 494)
+scale = Vector2(1.13148, 0.686111)
+texture = ExtResource("2_tnal6")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(114.5, 322.5)
+scale = Vector2(4.0125, 3.9125)
+sprite_frames = SubResource("SpriteFrames_o45ko")
+animation = &"Shot"
+
+[connection signal="area_entered" from="Area2D" to="." method="_p1_hoop_scored"]
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_p1_shot_finished"]

@@ -1,5 +1,6 @@
 extends RigidBody2D
 
+var held = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -8,13 +9,14 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
-	if $RayCast2D.is_colliding():
+	if held:
 		$AnimatedSprite2D.play("bounce")
 	else :
 		$AnimatedSprite2D.play("normal")
 
 		
-	rotation = clamp(0,0,0)
+	#rotation = clamp(0,0,0)
+
 
 
 func _on_area_2d_area_entered(area):
