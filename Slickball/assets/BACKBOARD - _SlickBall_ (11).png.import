@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cvo6pri3qyfso"
-path="res://.godot/imported/backboard0001.png-027b71e5e8692f5f20a7eff2317f53f3.ctex"
+uid="uid://cvmakbndwd7rw"
+path="res://.godot/imported/BACKBOARD - _SlickBall_ (11).png-20b94b7fb213ec4f68e7b82b5779e975.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/backboard0001.png"
-dest_files=["res://.godot/imported/backboard0001.png-027b71e5e8692f5f20a7eff2317f53f3.ctex"]
+source_file="res://assets/BACKBOARD - _SlickBall_ (11).png"
+dest_files=["res://.godot/imported/BACKBOARD - _SlickBall_ (11).png-20b94b7fb213ec4f68e7b82b5779e975.ctex"]
 
 [params]
 

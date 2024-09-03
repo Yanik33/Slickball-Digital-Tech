@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+var rand = RandomNumberGenerator.new()
+
 @export var ball_scene : PackedScene
 
 var hoop_vector
@@ -49,7 +51,7 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("P1_Shoot"):
 		_shoot()
 		
-	hoop_vector = shoot_point.global_position - get_node("/root/Node2D/P1_Hoop").global_position
+	hoop_vector = (shoot_point.global_position - get_node("/root/Node2D/P1_Hoop").global_position) + Vector2(rand.randf_range(0, 0), 0)
 	
 	var discriminant = shot_verticle**2 - 2 * gravity * hoop_vector.y;
 	intital_horizontal_velocity = -hoop_vector.x / ((-shot_verticle - (discriminant**0.5))/-gravity)	
@@ -61,6 +63,7 @@ func _shoot():
 	if ball_placement.remote_path != NodePath(""):
 		ball_placement.remote_path = NodePath("")
 		ball.held = false
+		ball.thrown = true
 		ball.linear_velocity.y = -shot_verticle
 		ball.linear_velocity.x = intital_horizontal_velocity
 	

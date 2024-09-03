@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://ctpoq8w0716x6"]
+[gd_scene load_steps=9 format=3 uid="uid://ctpoq8w0716x6"]
 
 [ext_resource type="Script" path="res://Scripts/Player1.gd" id="1_4oyr1"]
 [ext_resource type="PackedScene" uid="uid://pmixrqejxfox" path="res://Scenese/Basketball.tscn" id="2_veftn"]
@@ -15,6 +15,9 @@ size = Vector2(28.5, 87.75)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yxd1h"]
 size = Vector2(66.2611, 24)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j1u7k"]
+size = Vector2(121.706, 26.7648)
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
 script = ExtResource("1_4oyr1")
@@ -58,6 +61,10 @@ shape = SubResource("RectangleShape2D_eukpk")
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Marker2D/Sprite2D/Area2D"]
 position = Vector2(26.9675, -108)
 shape = SubResource("RectangleShape2D_yxd1h")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Marker2D/Sprite2D/Area2D"]
+position = Vector2(28.206, 45.7776)
+shape = SubResource("RectangleShape2D_j1u7k")
 
 [node name="shoot_point" type="Node2D" parent="Marker2D/Sprite2D"]
 position = Vector2(-39.8104, -3.98104)

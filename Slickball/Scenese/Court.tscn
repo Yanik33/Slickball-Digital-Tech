@@ -1,31 +1,37 @@
-[gd_scene load_steps=18 format=3 uid="uid://d2best8o8kf2k"]
+[gd_scene load_steps=27 format=3 uid="uid://d2best8o8kf2k"]
 
 [ext_resource type="Script" path="res://Scripts/Court.gd" id="1_l3jqv"]
-[ext_resource type="Texture2D" uid="uid://02qtfhbioql0" path="res://assets/SlickBall - Court Stage.png" id="1_vefdk"]
 [ext_resource type="Texture2D" uid="uid://cgsthngk4cpwk" path="res://assets/SlickBall - Court Stage (no background).png" id="2_tnal6"]
 [ext_resource type="Texture2D" uid="uid://ds654qv06pvl0" path="res://assets/backboard0000.png" id="4_eql5a"]
-[ext_resource type="Texture2D" uid="uid://cvo6pri3qyfso" path="res://assets/backboard0001.png" id="5_8gjmd"]
-[ext_resource type="Texture2D" uid="uid://dp8pm0b0aei37" path="res://assets/backboard0002.png" id="6_cmwra"]
-[ext_resource type="Texture2D" uid="uid://nsijhj3ryxmr" path="res://assets/backboard0003.png" id="7_vvepx"]
-[ext_resource type="Texture2D" uid="uid://cp2igsutv86a3" path="res://assets/backboard0004.png" id="8_1jjqj"]
+[ext_resource type="Texture2D" uid="uid://cvsw7rmq8516t" path="res://assets/BACKBOARD - _SlickBall_ (1).png" id="5_8v0qr"]
+[ext_resource type="Texture2D" uid="uid://nws6uxtoaqp" path="res://assets/BACKBOARD - _SlickBall_ (2).png" id="6_i6hul"]
+[ext_resource type="Texture2D" uid="uid://dsealnu4s8rab" path="res://assets/BACKBOARD - _SlickBall_ (3).png" id="7_kmh3u"]
+[ext_resource type="Texture2D" uid="uid://dii3ums6wpoif" path="res://assets/BACKBOARD - _SlickBall_ (4).png" id="8_270u3"]
+[ext_resource type="Texture2D" uid="uid://ba1tbra7bt1cx" path="res://assets/BACKBOARD - _SlickBall_ (5).png" id="9_drk3j"]
+[ext_resource type="Texture2D" uid="uid://8134wtgrlltu" path="res://assets/BACKBOARD - _SlickBall_ (6).png" id="10_fna5y"]
+[ext_resource type="Texture2D" uid="uid://cmqa5tflf2pxc" path="res://assets/BACKBOARD - _SlickBall_ (7).png" id="11_mges5"]
+[ext_resource type="Texture2D" uid="uid://vebdh0bb0ks8" path="res://assets/BACKBOARD - _SlickBall_ (8).png" id="12_ih5bp"]
+[ext_resource type="Texture2D" uid="uid://c0ao738gb1av8" path="res://assets/BACKBOARD - _SlickBall_ (9).png" id="13_vqyrb"]
+[ext_resource type="Texture2D" uid="uid://dkxctgsrofoa6" path="res://assets/BACKBOARD - _SlickBall_ (10).png" id="14_gpqqh"]
+[ext_resource type="Texture2D" uid="uid://cvmakbndwd7rw" path="res://assets/BACKBOARD - _SlickBall_ (11).png" id="15_bf4bx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wtexm"]
 size = Vector2(1152, 78)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_46jtv"]
-size = Vector2(42, 649)
+size = Vector2(42, 707.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6a813"]
-size = Vector2(43, 649)
+size = Vector2(43, 716)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mn32g"]
 size = Vector2(14.375, 2)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ixvqu"]
-size = Vector2(26, 135.5)
+size = Vector2(26, 133.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4jhxr"]
-size = Vector2(26, 109)
+size = Vector2(26, 140.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a2dku"]
 size = Vector2(32, 0.75)
@@ -40,16 +46,40 @@ animations = [{
 "texture": ExtResource("4_eql5a")
 }, {
 "duration": 1.0,
-"texture": ExtResource("5_8gjmd")
+"texture": ExtResource("5_8v0qr")
 }, {
 "duration": 1.0,
-"texture": ExtResource("6_cmwra")
+"texture": ExtResource("6_i6hul")
 }, {
 "duration": 1.0,
-"texture": ExtResource("7_vvepx")
+"texture": ExtResource("7_kmh3u")
 }, {
 "duration": 1.0,
-"texture": ExtResource("8_1jjqj")
+"texture": ExtResource("8_270u3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_drk3j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_fna5y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_mges5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_ih5bp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_vqyrb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_gpqqh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_bf4bx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_eql5a")
 }],
 "loop": false,
 "name": &"Shot",
@@ -64,9 +94,71 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="StaticBody2D" type="StaticBody2D" node_paths=PackedStringArray("p1_hoop")]
+[sub_resource type="SpriteFrames" id="SpriteFrames_6j7w0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_eql5a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_8v0qr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_i6hul")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_kmh3u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_270u3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_drk3j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_fna5y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_mges5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_ih5bp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_vqyrb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_gpqqh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_bf4bx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_eql5a")
+}],
+"loop": false,
+"name": &"Shot 2",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_eql5a")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cyhb4"]
+radius = 13.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dnjft"]
+size = Vector2(72, 7.5)
+
+[node name="StaticBody2D" type="StaticBody2D" node_paths=PackedStringArray("p1_hoop", "p2_hoop")]
 script = ExtResource("1_l3jqv")
 p1_hoop = NodePath("AnimatedSprite2D")
+p2_hoop = NodePath("AnimatedSprite2D3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(576, 609)
@@ -79,11 +171,11 @@ offset_right = 1155.0
 offset_bottom = 664.0
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
-position = Vector2(-22, 323)
+position = Vector2(-22, 293.75)
 shape = SubResource("RectangleShape2D_46jtv")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="."]
-position = Vector2(1173.5, 323.5)
+position = Vector2(1173.5, 290)
 shape = SubResource("RectangleShape2D_6a813")
 
 [node name="ColorRect2" type="ColorRect" parent="."]
@@ -125,34 +217,27 @@ position = Vector2(126, 308)
 shape = SubResource("RectangleShape2D_mn32g")
 
 [node name="CollisionShape2D8" type="CollisionShape2D" parent="."]
-position = Vector2(1013, 305)
+position = Vector2(1020, 305)
 shape = SubResource("RectangleShape2D_mn32g")
 
 [node name="CollisionShape2D9" type="CollisionShape2D" parent="."]
-position = Vector2(1054, 305)
+position = Vector2(1061, 305)
 shape = SubResource("RectangleShape2D_mn32g")
 
 [node name="CollisionShape2D10" type="CollisionShape2D" parent="."]
-position = Vector2(39, 284.75)
+position = Vector2(39, 285.75)
 shape = SubResource("RectangleShape2D_ixvqu")
 
 [node name="CollisionShape2D11" type="CollisionShape2D" parent="."]
-position = Vector2(1117, 298)
+position = Vector2(1117, 282.25)
 shape = SubResource("RectangleShape2D_4jhxr")
-
-[node name="SlickBall-CourtStage" type="Sprite2D" parent="."]
-visible = false
-z_index = -1
-position = Vector2(570, 365.5)
-scale = Vector2(1.13148, 1.00139)
-texture = ExtResource("1_vefdk")
 
 [node name="Area2D" type="Area2D" parent="."]
 position = Vector2(173, 128)
 metadata/scorep1 = true
 
 [node name="P1_Score" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-68, 189.625)
+position = Vector2(-68, 190)
 shape = SubResource("RectangleShape2D_a2dku")
 
 [node name="Area2D2" type="Area2D" parent="."]
@@ -160,7 +245,7 @@ position = Vector2(1033, 330)
 metadata/scorep2 = true
 
 [node name="P2_Score" type="CollisionShape2D" parent="Area2D2"]
-position = Vector2(1, -15.375)
+position = Vector2(8, -15)
 scale = Vector2(1.06286, 1)
 shape = SubResource("RectangleShape2D_1jnlj")
 
@@ -176,5 +261,43 @@ scale = Vector2(4.0125, 3.9125)
 sprite_frames = SubResource("SpriteFrames_o45ko")
 animation = &"Shot"
 
+[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="."]
+position = Vector2(1050, 321)
+scale = Vector2(4.013, 4.04537)
+sprite_frames = SubResource("SpriteFrames_6j7w0")
+animation = &"Shot 2"
+
+[node name="ColorRect6" type="ColorRect" parent="."]
+z_index = 10
+offset_left = 78.0
+offset_top = 307.0
+offset_right = 131.0
+offset_bottom = 311.0
+color = Color(1, 0.0901961, 0, 1)
+
+[node name="ColorRect7" type="ColorRect" parent="."]
+z_index = 10
+offset_left = 1014.0
+offset_top = 305.0
+offset_right = 1066.0
+offset_bottom = 309.0
+color = Color(1, 0.0901961, 0, 1)
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="."]
+position = Vector2(39, 228)
+shape = SubResource("CircleShape2D_cyhb4")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="."]
+position = Vector2(1117, 221)
+shape = SubResource("CircleShape2D_cyhb4")
+
+[node name="CollisionShape2D12" type="CollisionShape2D" parent="."]
+position = Vector2(105, 331)
+rotation = -3.14159
+shape = SubResource("RectangleShape2D_dnjft")
+one_way_collision = true
+
 [connection signal="area_entered" from="Area2D" to="." method="_p1_hoop_scored"]
+[connection signal="area_entered" from="Area2D2" to="." method="_p2_hoop_scored"]
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_p1_shot_finished"]
+[connection signal="animation_finished" from="AnimatedSprite2D3" to="." method="_p2_hoop_finished"]

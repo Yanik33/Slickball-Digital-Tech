@@ -1,6 +1,7 @@
 extends StaticBody2D
 
 @export var p1_hoop : Node
+@export var p2_hoop : Node
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -17,7 +18,19 @@ func _p1_hoop_scored(area):
 		p1_hoop.play("Shot")
 		
 
-
 func _p1_shot_finished():
 	if p1_hoop.animation == "Shot":
 		p1_hoop.play("default")
+		
+
+
+
+
+func _p2_hoop_scored(area):
+	if area.has_meta("ball"):
+		p2_hoop.play("Shot 2")
+		
+
+func _p2_hoop_finished():
+	if p2_hoop.animation == "Shot 2":
+		p2_hoop.play("default")

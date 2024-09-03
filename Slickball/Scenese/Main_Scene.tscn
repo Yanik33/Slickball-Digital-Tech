@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://r6q5sjvtwbwm"]
+[gd_scene load_steps=7 format=3 uid="uid://r6q5sjvtwbwm"]
 
 [ext_resource type="PackedScene" uid="uid://d2best8o8kf2k" path="res://Scenese/Court.tscn" id="1_26mub"]
 [ext_resource type="PackedScene" uid="uid://ctpoq8w0716x6" path="res://Scenese/Player1.tscn" id="2_1fte8"]
 [ext_resource type="PackedScene" uid="uid://biimbar21jdr2" path="res://Scenese/Player2.tscn" id="3_7qnyb"]
 [ext_resource type="PackedScene" uid="uid://pmixrqejxfox" path="res://Scenese/Basketball.tscn" id="4_mh7vl"]
+[ext_resource type="Script" path="res://Scripts/scoreboard.gd" id="5_b26b8"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_mny6r"]
 bounce = 0.8
@@ -26,10 +27,29 @@ collision_mask = 2
 position = Vector2(-56, 286)
 
 [node name="P2_Hoop" type="Node2D" parent="."]
-position = Vector2(1206, 287)
+position = Vector2(1210, 287)
 
 [node name="RigidBody2D" parent="." instance=ExtResource("4_mh7vl")]
 position = Vector2(562, 175)
 collision_layer = 4
 collision_mask = 4
 physics_material_override = SubResource("PhysicsMaterial_mny6r")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+script = ExtResource("5_b26b8")
+
+[node name="p1_scoreboard" type="Label" parent="CanvasLayer"]
+offset_left = 654.0
+offset_top = 37.0
+offset_right = 694.0
+offset_bottom = 106.0
+theme_override_font_sizes/font_size = 50
+text = "0"
+
+[node name="p2_scoreboard" type="Label" parent="CanvasLayer"]
+offset_left = 435.0
+offset_top = 36.0
+offset_right = 475.0
+offset_bottom = 105.0
+theme_override_font_sizes/font_size = 50
+text = "0"
