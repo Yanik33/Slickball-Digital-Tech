@@ -1,10 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://r6q5sjvtwbwm"]
+[gd_scene load_steps=9 format=3 uid="uid://r6q5sjvtwbwm"]
 
 [ext_resource type="PackedScene" uid="uid://d2best8o8kf2k" path="res://Scenese/Court.tscn" id="1_26mub"]
 [ext_resource type="PackedScene" uid="uid://ctpoq8w0716x6" path="res://Scenese/Player1.tscn" id="2_1fte8"]
 [ext_resource type="PackedScene" uid="uid://biimbar21jdr2" path="res://Scenese/Player2.tscn" id="3_7qnyb"]
 [ext_resource type="PackedScene" uid="uid://pmixrqejxfox" path="res://Scenese/Basketball.tscn" id="4_mh7vl"]
 [ext_resource type="Script" path="res://Scripts/scoreboard.gd" id="5_b26b8"]
+[ext_resource type="Texture2D" uid="uid://bt7arg65j4nha" path="res://assets/images-removebg-preview (1).png" id="6_cqfx4"]
+[ext_resource type="Texture2D" uid="uid://ko36llbl1h0w" path="res://assets/images-removebg-preview.png" id="7_c70lj"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_mny6r"]
 bounce = 0.8
@@ -24,16 +26,17 @@ collision_layer = 2
 collision_mask = 2
 
 [node name="P1_Hoop" type="Node2D" parent="."]
-position = Vector2(-56, 286)
+position = Vector2(104, 292)
 
 [node name="P2_Hoop" type="Node2D" parent="."]
-position = Vector2(1210, 287)
+position = Vector2(1041, 288)
 
 [node name="RigidBody2D" parent="." instance=ExtResource("4_mh7vl")]
 position = Vector2(562, 175)
 collision_layer = 4
 collision_mask = 4
 physics_material_override = SubResource("PhysicsMaterial_mny6r")
+linear_damp_mode = 1
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 script = ExtResource("5_b26b8")
@@ -47,9 +50,60 @@ theme_override_font_sizes/font_size = 50
 text = "0"
 
 [node name="p2_scoreboard" type="Label" parent="CanvasLayer"]
-offset_left = 435.0
+offset_left = 446.0
 offset_top = 36.0
-offset_right = 475.0
+offset_right = 486.0
 offset_bottom = 105.0
 theme_override_font_sizes/font_size = 50
 text = "0"
+
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = 2
+offset_left = 432.0
+offset_top = 94.0
+offset_right = 704.0
+offset_bottom = 99.0
+
+[node name="Images-removebg-preview(1)" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(531, 73)
+scale = Vector2(0.271318, 0.251282)
+texture = ExtResource("6_cqfx4")
+
+[node name="Images-removebg-preview" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(608, 71)
+scale = Vector2(0.29, 0.281111)
+texture = ExtResource("7_c70lj")
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+offset_left = 432.0
+offset_top = 49.0
+offset_right = 703.0
+offset_bottom = 94.0
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="."]
+offset_left = 427.0
+offset_top = 44.0
+offset_right = 432.0
+offset_bottom = 99.0
+
+[node name="ColorRect4" type="ColorRect" parent="."]
+z_index = 2
+offset_left = 432.0
+offset_top = 44.0
+offset_right = 704.0
+offset_bottom = 49.0
+
+[node name="ColorRect5" type="ColorRect" parent="."]
+offset_left = 703.0
+offset_top = 44.0
+offset_right = 708.0
+offset_bottom = 99.0
+
+[node name="ColorRect6" type="ColorRect" parent="."]
+offset_left = 561.0
+offset_top = 44.0
+offset_right = 566.0
+offset_bottom = 99.0

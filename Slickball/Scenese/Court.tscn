@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://d2best8o8kf2k"]
+[gd_scene load_steps=29 format=3 uid="uid://d2best8o8kf2k"]
 
 [ext_resource type="Script" path="res://Scripts/Court.gd" id="1_l3jqv"]
 [ext_resource type="Texture2D" uid="uid://cgsthngk4cpwk" path="res://assets/SlickBall - Court Stage (no background).png" id="2_tnal6"]
@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://c0ao738gb1av8" path="res://assets/BACKBOARD - _SlickBall_ (9).png" id="13_vqyrb"]
 [ext_resource type="Texture2D" uid="uid://dkxctgsrofoa6" path="res://assets/BACKBOARD - _SlickBall_ (10).png" id="14_gpqqh"]
 [ext_resource type="Texture2D" uid="uid://cvmakbndwd7rw" path="res://assets/BACKBOARD - _SlickBall_ (11).png" id="15_bf4bx"]
+[ext_resource type="Texture2D" uid="uid://bbmasi6l1i4q7" path="res://assets/SlickBall - Court Background.png" id="15_rasbw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wtexm"]
 size = Vector2(1152, 78)
@@ -25,7 +26,7 @@ size = Vector2(42, 707.5)
 size = Vector2(43, 716)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mn32g"]
-size = Vector2(14.375, 2)
+size = Vector2(5.52344, 2)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ixvqu"]
 size = Vector2(26, 133.5)
@@ -153,7 +154,10 @@ animations = [{
 radius = 13.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dnjft"]
-size = Vector2(72, 7.5)
+size = Vector2(34, 2.75003)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jy7u0"]
+size = Vector2(33, 2.99991)
 
 [node name="StaticBody2D" type="StaticBody2D" node_paths=PackedStringArray("p1_hoop", "p2_hoop")]
 script = ExtResource("1_l3jqv")
@@ -209,19 +213,19 @@ scale = Vector2(0.985751, 1.00532)
 color = Color(0.635294, 0.635294, 0.635294, 1)
 
 [node name="CollisionShape2D6" type="CollisionShape2D" parent="."]
-position = Vector2(82.1875, 308)
+position = Vector2(81, 308)
 shape = SubResource("RectangleShape2D_mn32g")
 
 [node name="CollisionShape2D7" type="CollisionShape2D" parent="."]
-position = Vector2(126, 308)
+position = Vector2(128, 308)
 shape = SubResource("RectangleShape2D_mn32g")
 
 [node name="CollisionShape2D8" type="CollisionShape2D" parent="."]
-position = Vector2(1020, 305)
+position = Vector2(1016.76, 306)
 shape = SubResource("RectangleShape2D_mn32g")
 
 [node name="CollisionShape2D9" type="CollisionShape2D" parent="."]
-position = Vector2(1061, 305)
+position = Vector2(1063, 306)
 shape = SubResource("RectangleShape2D_mn32g")
 
 [node name="CollisionShape2D10" type="CollisionShape2D" parent="."]
@@ -245,7 +249,7 @@ position = Vector2(1033, 330)
 metadata/scorep2 = true
 
 [node name="P2_Score" type="CollisionShape2D" parent="Area2D2"]
-position = Vector2(8, -15)
+position = Vector2(8, -14)
 scale = Vector2(1.06286, 1)
 shape = SubResource("RectangleShape2D_1jnlj")
 
@@ -276,11 +280,11 @@ offset_bottom = 311.0
 color = Color(1, 0.0901961, 0, 1)
 
 [node name="ColorRect7" type="ColorRect" parent="."]
-z_index = 10
+z_index = -1
 offset_left = 1014.0
-offset_top = 305.0
+offset_top = 304.0
 offset_right = 1066.0
-offset_bottom = 309.0
+offset_bottom = 308.0
 color = Color(1, 0.0901961, 0, 1)
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="."]
@@ -292,10 +296,22 @@ position = Vector2(1117, 221)
 shape = SubResource("CircleShape2D_cyhb4")
 
 [node name="CollisionShape2D12" type="CollisionShape2D" parent="."]
-position = Vector2(105, 331)
+position = Vector2(105, 318.625)
 rotation = -3.14159
 shape = SubResource("RectangleShape2D_dnjft")
 one_way_collision = true
+
+[node name="CollisionShape2D13" type="CollisionShape2D" parent="."]
+position = Vector2(1040, 315)
+rotation = -3.14159
+shape = SubResource("RectangleShape2D_jy7u0")
+one_way_collision = true
+
+[node name="SlickBall-CourtBackground" type="Sprite2D" parent="."]
+z_index = -2
+position = Vector2(578.5, 364)
+scale = Vector2(1.075, 1.00556)
+texture = ExtResource("15_rasbw")
 
 [connection signal="area_entered" from="Area2D" to="." method="_p1_hoop_scored"]
 [connection signal="area_entered" from="Area2D2" to="." method="_p2_hoop_scored"]

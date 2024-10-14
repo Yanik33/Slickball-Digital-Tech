@@ -5,7 +5,7 @@ var thrown = false
 @onready var scoreboard = get_node("/root/Node2D/CanvasLayer")
 
 # Called when the node enters the scene tree for the first time.
-
+ 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
@@ -31,5 +31,7 @@ func _on_area_2d_area_entered(area):
 		scoreboard._update_scoreboard(false, true)
 		print("SCORE Player 2")
 		
+
+
 
 
