@@ -50,34 +50,38 @@ func _physics_process(delta):
 		$Marker2D.scale.x = direction
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
-
-	if Input.is_action_pressed("P2_Shoot"):
-		$Path2D.show()
-		if not shot_reverse:
-			if $Path2D/shot_indicator_P2.progress_ratio < 0.98:
-				$Path2D/shot_indicator_P2.progress_ratio += 0.02
+	if ball_placement2.remote_path != NodePath(""):
+		if Input.is_action_pressed("P2_Shoot"):
+			$Path2D.show()
+			if not shot_reverse:
+				if $Path2D/shot_indicator_P2.progress_ratio < 0.98:
+					$Path2D/shot_indicator_P2.progress_ratio += 0.02
+				else:
+					shot_reverse = true
+			elif shot_reverse:
+				if $Path2D/shot_indicator_P2.progress_ratio > 0.02:
+					$Path2D/shot_indicator_P2.progress_ratio -=0.02
+				else:
+					shot_reverse = false
+		if Input.is_action_just_pressed("P2_Shoot"):
+			$Path2D/PathFollow2D.progress_ratio = randf_range(0.10,0.87)
+			
+		if Input.is_action_just_released("P2_Shoot"):
+			if $Path2D/shot_indicator_P2.progress > $Path2D/PathFollow2D.progress - $Path2D/PathFollow2D/ColorRect.size.x / 2 and $Path2D/shot_indicator_P2.progress < $Path2D/PathFollow2D.progress + $Path2D/PathFollow2D/ColorRect.size.x / 2:
+				_shoot(true)
 			else:
-				shot_reverse = true
-		elif shot_reverse:
-			if $Path2D/shot_indicator_P2.progress_ratio > 0.02:
-				$Path2D/shot_indicator_P2.progress_ratio -=0.02
-			else:
-				shot_reverse = false
-	if Input.is_action_just_pressed("P2_Shoot"):
-		$Path2D/PathFollow2D.progress_ratio = randf_range(0.10,0.87)
-		
-	if Input.is_action_just_released("P2_Shoot"):
-		if $Path2D/shot_indicator_P2.progress > $Path2D/PathFollow2D.progress - $Path2D/PathFollow2D/ColorRect.size.x / 2 and $Path2D/shot_indicator_P2.progress < $Path2D/PathFollow2D.progress + $Path2D/PathFollow2D/ColorRect.size.x / 2:
-			_shoot(true)
-		else:
-			_shoot(false)
-		await get_tree().create_timer(1.0).timeout
-		$Path2D.hide()
+				_shoot(false)
+			await get_tree().create_timer(1.0).timeout
+			$Path2D.hide()
 	
 	
 	hoop_vector = (ball_placement2.global_position - get_node("/root/Node2D/P2_Hoop").global_position) + Vector2(rand.randf_range(0, 0), 0)
 	
 	
+	if Input.is_action_pressed("P2_push"):
+		$Marker2D/StaticBody2D/BlockP2.disabled = false
+	else: 
+		$Marker2D/StaticBody2D/BlockP2.disabled = true
 	
 	move_and_slide()
 	
@@ -92,10 +96,17 @@ func _shoot(perfect):
 	if ball_placement2.remote_path != NodePath(""):
 		ball_placement2.remote_path = NodePath("")
 		ball.held = false
-		ball.thrown = true
+		#ball.thrown = true
 		ball.linear_velocity.y = -shot_verticle
 		ball.linear_velocity.x = intital_horizontal_velocity
 	
+	for node in get_tree().get_nodes_in_group("catcher"):
+		node.disabled = true
+	
+	await get_tree().create_timer(0.4).timeout
+	
+	for node in get_tree().get_nodes_in_group("catcher"):
+		node.disabled = false
 
 
 func _on_area_2d_body_entered(body):

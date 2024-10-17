@@ -241,6 +241,7 @@ position = Vector2(173, 128)
 metadata/scorep1 = true
 
 [node name="P1_Score" type="CollisionShape2D" parent="Area2D"]
+z_index = 1
 position = Vector2(-68, 190)
 shape = SubResource("RectangleShape2D_a2dku")
 
@@ -249,6 +250,7 @@ position = Vector2(1033, 330)
 metadata/scorep2 = true
 
 [node name="P2_Score" type="CollisionShape2D" parent="Area2D2"]
+z_index = 1
 position = Vector2(8, -14)
 scale = Vector2(1.06286, 1)
 shape = SubResource("RectangleShape2D_1jnlj")
@@ -264,6 +266,8 @@ position = Vector2(114.5, 322.5)
 scale = Vector2(4.0125, 3.9125)
 sprite_frames = SubResource("SpriteFrames_o45ko")
 animation = &"Shot"
+frame = 12
+frame_progress = 1.0
 
 [node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="."]
 position = Vector2(1050, 321)
@@ -296,20 +300,20 @@ position = Vector2(1117, 221)
 shape = SubResource("CircleShape2D_cyhb4")
 
 [node name="CollisionShape2D12" type="CollisionShape2D" parent="."]
-position = Vector2(105, 318.625)
+position = Vector2(105, 329)
 rotation = -3.14159
 shape = SubResource("RectangleShape2D_dnjft")
 one_way_collision = true
 
 [node name="CollisionShape2D13" type="CollisionShape2D" parent="."]
-position = Vector2(1040, 315)
+position = Vector2(1040, 328)
 rotation = -3.14159
 shape = SubResource("RectangleShape2D_jy7u0")
 one_way_collision = true
 
 [node name="SlickBall-CourtBackground" type="Sprite2D" parent="."]
 z_index = -2
-position = Vector2(578.5, 364)
+position = Vector2(579, 365)
 scale = Vector2(1.075, 1.00556)
 texture = ExtResource("15_rasbw")
 

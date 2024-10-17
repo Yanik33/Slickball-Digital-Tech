@@ -14,7 +14,7 @@ bounce = 0.8
 [node name="Node2D" type="Node2D"]
 
 [node name="StaticBody2D" parent="." instance=ExtResource("1_26mub")]
-position = Vector2(0, -17)
+position = Vector2(4, -29)
 collision_layer = 7
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("2_1fte8")]
@@ -26,10 +26,10 @@ collision_layer = 2
 collision_mask = 2
 
 [node name="P1_Hoop" type="Node2D" parent="."]
-position = Vector2(104, 292)
+position = Vector2(105, 281)
 
 [node name="P2_Hoop" type="Node2D" parent="."]
-position = Vector2(1041, 288)
+position = Vector2(1045, 275)
 
 [node name="RigidBody2D" parent="." instance=ExtResource("4_mh7vl")]
 position = Vector2(562, 175)

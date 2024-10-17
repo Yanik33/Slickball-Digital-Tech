@@ -14,11 +14,11 @@ func _physics_process(delta):
 	else :
 		$AnimatedSprite2D.play("normal")
 
-	if thrown:
-		$CollisionShape2D.disabled = true
-		await get_tree().create_timer(0.3).timeout
-		$CollisionShape2D.disabled = false
-		thrown = false
+	#if thrown:
+		#$CollisionShape2D.disabled = true
+		#await get_tree().create_timer(0.3).timeout
+		#$CollisionShape2D.disabled = false
+		#thrown = false
 	#rotation = clamp(0,0,0)
 
 

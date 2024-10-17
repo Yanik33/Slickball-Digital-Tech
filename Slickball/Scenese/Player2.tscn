@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://biimbar21jdr2"]
+[gd_scene load_steps=11 format=3 uid="uid://biimbar21jdr2"]
 
 [ext_resource type="Script" path="res://Scripts/Player2.gd" id="1_o7lnb"]
 [ext_resource type="PackedScene" uid="uid://pmixrqejxfox" path="res://Scenese/Basketball.tscn" id="2_hjf8g"]
@@ -18,6 +18,9 @@ size = Vector2(64, 25)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dspbo"]
 size = Vector2(117, 29)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v82ep"]
+size = Vector2(26, 225)
 
 [sub_resource type="Curve2D" id="Curve2D_gw7c0"]
 _data = {
@@ -56,19 +59,19 @@ scale = Vector2(0.588235, 0.560853)
 collision_layer = 4
 collision_mask = 4
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Marker2D/Sprite2D/Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Marker2D/Sprite2D/Area2D" groups=["catcher"]]
 position = Vector2(-75, -42.5)
 shape = SubResource("RectangleShape2D_itv1m")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Marker2D/Sprite2D/Area2D"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Marker2D/Sprite2D/Area2D" groups=["catcher"]]
 position = Vector2(16, -42)
 shape = SubResource("RectangleShape2D_4b6gi")
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="Marker2D/Sprite2D/Area2D"]
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Marker2D/Sprite2D/Area2D" groups=["catcher"]]
 position = Vector2(-30, -138.5)
 shape = SubResource("RectangleShape2D_ixpwd")
 
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="Marker2D/Sprite2D/Area2D"]
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Marker2D/Sprite2D/Area2D" groups=["catcher"]]
 position = Vector2(-29.0001, 14.9999)
 shape = SubResource("RectangleShape2D_dspbo")
 
@@ -79,6 +82,14 @@ scale = Vector2(0.588235, 0.560853)
 [node name="ball_placement2" type="RemoteTransform2D" parent="Marker2D/Sprite2D"]
 position = Vector2(32.353, 52.7201)
 scale = Vector2(0.588235, 0.560853)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Marker2D"]
+collision_layer = 4
+collision_mask = 4
+
+[node name="BlockP2" type="CollisionShape2D" parent="Marker2D/StaticBody2D"]
+position = Vector2(45, -74.5)
+shape = SubResource("RectangleShape2D_v82ep")
 
 [node name="Path2D" type="Path2D" parent="."]
 curve = SubResource("Curve2D_gw7c0")
