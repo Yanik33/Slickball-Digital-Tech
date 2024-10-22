@@ -1,0 +1,140 @@
+[gd_scene load_steps=6 format=3 uid="uid://o5fin6fubmkp"]
+
+[ext_resource type="Texture2D" uid="uid://dwr1jgmf1wwld" path="res://assets/Controlbg.png" id="1_15at1"]
+[ext_resource type="Script" path="res://Scenese/controls.gd" id="1_x3ksh"]
+[ext_resource type="StyleBox" uid="uid://df0pkf2xb0p8o" path="res://assets/controls_main_label.tres" id="2_q5ame"]
+[ext_resource type="Texture2D" uid="uid://belm5s0f7kiqf" path="res://assets/Lebron James 4.png" id="4_njmaa"]
+[ext_resource type="Texture2D" uid="uid://cl1u2qektcwk" path="res://assets/steph curry  (1).png" id="5_rwldt"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_x3ksh")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Button" type="Button" parent="CanvasLayer"]
+offset_right = 8.0
+offset_bottom = 8.0
+theme_override_font_sizes/font_size = 30
+text = "<--- BACK"
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+offset_left = 45.0
+offset_top = 75.0
+offset_right = 614.0
+offset_bottom = 144.0
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = ExtResource("2_q5ame")
+text = "Player 1 (Steph Curry)"
+
+[node name="Label2" type="Label" parent="CanvasLayer"]
+offset_left = 45.0
+offset_top = 355.0
+offset_right = 577.0
+offset_bottom = 430.0
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = ExtResource("2_q5ame")
+text = "Player 2 (Lebron James)
+"
+
+[node name="Label3" type="Label" parent="CanvasLayer"]
+offset_left = 46.0
+offset_top = 168.0
+offset_right = 160.0
+offset_bottom = 210.0
+theme_override_font_sizes/font_size = 30
+text = "W - Jump"
+
+[node name="Label4" type="Label" parent="CanvasLayer"]
+offset_left = 50.0
+offset_top = 211.0
+offset_right = 152.0
+offset_bottom = 253.0
+theme_override_font_sizes/font_size = 30
+text = "A - Left"
+
+[node name="Label5" type="Label" parent="CanvasLayer"]
+offset_left = 49.0
+offset_top = 252.0
+offset_right = 172.0
+offset_bottom = 294.0
+theme_override_font_sizes/font_size = 30
+text = "D - Right"
+
+[node name="Label6" type="Label" parent="CanvasLayer"]
+offset_left = 51.0
+offset_top = 292.0
+offset_right = 255.0
+offset_bottom = 334.0
+theme_override_font_sizes/font_size = 30
+text = "S - Push/Block"
+
+[node name="Label7" type="Label" parent="CanvasLayer"]
+offset_left = 298.0
+offset_top = 170.0
+offset_right = 424.0
+offset_bottom = 212.0
+theme_override_font_sizes/font_size = 30
+text = "F - Shoot"
+
+[node name="Label8" type="Label" parent="CanvasLayer"]
+offset_left = 46.0
+offset_top = 446.0
+offset_right = 346.0
+offset_bottom = 488.0
+theme_override_font_sizes/font_size = 30
+text = "Up Arrow Key - Jump"
+
+[node name="Label9" type="Label" parent="CanvasLayer"]
+offset_left = 46.0
+offset_top = 494.0
+offset_right = 341.0
+offset_bottom = 536.0
+theme_override_font_sizes/font_size = 30
+text = "Left Arrow Key - Left"
+
+[node name="Label10" type="Label" parent="CanvasLayer"]
+offset_left = 45.0
+offset_top = 542.0
+offset_right = 378.0
+offset_bottom = 584.0
+theme_override_font_sizes/font_size = 30
+text = "Right Arrow Key - Right"
+
+[node name="Label11" type="Label" parent="CanvasLayer"]
+offset_left = 43.0
+offset_top = 587.0
+offset_right = 247.0
+offset_bottom = 629.0
+theme_override_font_sizes/font_size = 30
+text = "Down Arrow Key - Push/Block"
+
+[node name="Label12" type="Label" parent="CanvasLayer"]
+offset_left = 406.0
+offset_top = 452.0
+offset_right = 535.0
+offset_bottom = 494.0
+theme_override_font_sizes/font_size = 30
+text = "K/Shift - Shoot"
+
+[node name="Controlbg" type="Sprite2D" parent="."]
+position = Vector2(576, 324.25)
+scale = Vector2(1.84026, 1.55276)
+texture = ExtResource("1_15at1")
+
+[node name="LebronJames4" type="Sprite2D" parent="."]
+position = Vector2(646, 498)
+scale = Vector2(2.00833, 2.175)
+texture = ExtResource("4_njmaa")
+
+[node name="StephCurry(1)" type="Sprite2D" parent="."]
+position = Vector2(651, 203)
+scale = Vector2(2.05, 2.27917)
+texture = ExtResource("5_rwldt")
+
+[connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_button_pressed"]

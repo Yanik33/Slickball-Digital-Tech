@@ -34,3 +34,7 @@ func _p2_hoop_scored(area):
 func _p2_hoop_finished():
 	if p2_hoop.animation == "Shot 2":
 		p2_hoop.play("default")
+
+
+func _on_home_pressed():
+	get_tree().call_deferred("change_scene_to_file", "res://Scenese/MainMenu.tscn")

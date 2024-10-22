@@ -1,0 +1,69 @@
+[gd_scene load_steps=4 format=3 uid="uid://6y2cvvxa12e8"]
+
+[ext_resource type="Script" path="res://Scripts/MainMenu.gd" id="1_lncsv"]
+[ext_resource type="StyleBox" uid="uid://cnfpftay1gmh5" path="res://assets/Normal style.tres" id="2_k0xtj"]
+[ext_resource type="Texture2D" uid="uid://gy0kccq356sy" path="res://assets/Main menu background1.png" id="2_oair4"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_lncsv")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -197.0
+offset_right = 197.0
+offset_bottom = 137.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 100
+text = "Slickball"
+
+[node name="Button" type="Button" parent="CanvasLayer"]
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 65.0
+offset_top = -124.0
+offset_right = 274.0
+offset_bottom = -47.0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = ExtResource("2_k0xtj")
+text = "Play"
+
+[node name="Control Buttons" type="Button" parent="CanvasLayer"]
+offset_left = 65.0
+offset_top = 274.0
+offset_right = 274.0
+offset_bottom = 351.0
+theme_override_font_sizes/font_size = 45
+theme_override_styles/normal = ExtResource("2_k0xtj")
+text = "Controls
+"
+
+[node name="Credits" type="Button" parent="CanvasLayer"]
+offset_left = 65.0
+offset_top = 348.0
+offset_right = 274.0
+offset_bottom = 423.0
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = ExtResource("2_k0xtj")
+text = "Credits
+"
+
+[node name="MainMenuBackground1" type="Sprite2D" parent="."]
+position = Vector2(575.5, 324.75)
+scale = Vector2(1.84185, 1.84188)
+texture = ExtResource("2_oair4")
+
+[connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control Buttons" to="." method="_on_control_buttons_pressed"]
+[connection signal="pressed" from="CanvasLayer/Credits" to="." method="_on_credits_pressed"]

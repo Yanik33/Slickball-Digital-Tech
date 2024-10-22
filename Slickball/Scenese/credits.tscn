@@ -1,0 +1,65 @@
+[gd_scene load_steps=4 format=3 uid="uid://bsu3epnk26ajs"]
+
+[ext_resource type="StyleBox" uid="uid://cnfpftay1gmh5" path="res://assets/Normal style.tres" id="1_gx5xi"]
+[ext_resource type="Texture2D" uid="uid://8rownrf73s0k" path="res://assets/grunge-black-concrete-textured-background_53876-124541.png" id="1_uqn64"]
+[ext_resource type="Script" path="res://Scenese/credits.gd" id="2_rjcf2"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -197.0
+offset_right = 197.0
+offset_bottom = 137.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 100
+text = "Slickball"
+
+[node name="Label2" type="Label" parent="CanvasLayer"]
+offset_left = 28.0
+offset_top = 190.0
+offset_right = 338.0
+offset_bottom = 374.0
+theme_override_font_sizes/font_size = 30
+text = "Developed by: 
+Yanik Morriswala
+Wilford Tovo
+Jonathan Kelly"
+
+[node name="Label3" type="Label" parent="CanvasLayer"]
+offset_left = 338.0
+offset_top = 182.0
+offset_right = 1126.0
+offset_bottom = 449.0
+theme_override_font_sizes/font_size = 30
+text = "Credits:
+Game Development & Programming: Yanik Morriswala
+
+Visuals & Animations:
+Jonathan Kelly
+Wilford Tovo"
+
+[node name="Button" type="Button" parent="CanvasLayer"]
+offset_right = 8.0
+offset_bottom = 8.0
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = ExtResource("1_gx5xi")
+text = "<-- Back"
+script = ExtResource("2_rjcf2")
+
+[node name="Grunge-black-concrete-textured-background53876-124541" type="Sprite2D" parent="."]
+position = Vector2(576, 324)
+scale = Vector2(1.84026, 1.55396)
+texture = ExtResource("1_uqn64")
+
+[connection signal="pressed" from="CanvasLayer/Button" to="CanvasLayer/Button" method="_on_pressed"]

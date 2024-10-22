@@ -31,12 +31,12 @@ func _physics_process(delta):
 		velocity.y += gravity * delta
 
 	# Handle jump.
-	if Input.is_action_pressed("P2_push"):
+	if Input.is_action_pressed("P1_push"):
 		collision_layer = 1
 		collision_mask = 1
-		if Input.is_action_just_pressed("P2_jump") and is_on_floor():
+		if Input.is_action_just_pressed("P1_jump") and is_on_floor():
 			velocity.y = JUMP_VELOCITY * 1.1
-	elif Input.is_action_just_pressed("P2_jump") and is_on_floor():
+	elif Input.is_action_just_pressed("P1_jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 	else:
 		collision_layer = 2
@@ -44,14 +44,14 @@ func _physics_process(delta):
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
-	var direction = Input.get_axis("P2_left", "P2_right")
-	if direction and not Input.is_action_pressed('P2_push'):
+	var direction = Input.get_axis("P1_left", "P1_right")
+	if direction and not Input.is_action_pressed('P1_push'):
 		velocity.x = direction * SPEED
 		$Marker2D.scale.x = direction
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 	if ball_placement2.remote_path != NodePath(""):
-		if Input.is_action_pressed("P2_Shoot"):
+		if Input.is_action_pressed("P1_Shoot"):
 			$Path2D.show()
 			if not shot_reverse:
 				if $Path2D/shot_indicator_P2.progress_ratio < 0.98:
@@ -63,10 +63,10 @@ func _physics_process(delta):
 					$Path2D/shot_indicator_P2.progress_ratio -=0.02
 				else:
 					shot_reverse = false
-		if Input.is_action_just_pressed("P2_Shoot"):
+		if Input.is_action_just_pressed("P1_Shoot"):
 			$Path2D/PathFollow2D.progress_ratio = randf_range(0.10,0.87)
 			
-		if Input.is_action_just_released("P2_Shoot"):
+		if Input.is_action_just_released("P1_Shoot"):
 			if $Path2D/shot_indicator_P2.progress > $Path2D/PathFollow2D.progress - $Path2D/PathFollow2D/ColorRect.size.x / 2 and $Path2D/shot_indicator_P2.progress < $Path2D/PathFollow2D.progress + $Path2D/PathFollow2D/ColorRect.size.x / 2:
 				_shoot(true)
 			else:
@@ -78,7 +78,7 @@ func _physics_process(delta):
 	hoop_vector = (ball_placement2.global_position - get_node("/root/Node2D/P2_Hoop").global_position) + Vector2(rand.randf_range(0, 0), 0)
 	
 	
-	if Input.is_action_pressed("P2_push"):
+	if Input.is_action_pressed("P1_push"):
 		$Marker2D/StaticBody2D/BlockP2.disabled = false
 	else: 
 		$Marker2D/StaticBody2D/BlockP2.disabled = true
