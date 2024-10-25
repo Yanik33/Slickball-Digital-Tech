@@ -6,7 +6,7 @@ var rand = RandomNumberGenerator.new()
 
 var hoop_vector
 var intital_horizontal_velocity
-var shot_verticle = 950
+var shot_verticle = 960
 
 @onready var ball_placement2 = $Marker2D/Sprite2D/ball_placement2
 @onready var shoot_point2 = $Marker2D/Sprite2D/shoot_point2
@@ -19,18 +19,18 @@ var shot_reverse = false
 
 @onready var hoop = get_node("/root/Node2D/P2_Hoop")
 
-# Get the gravity from the project settings to be synced with RigidBody nodes.
+
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 func _ready():
 	$Path2D.hide()
 
 func _physics_process(delta):
-	# Add the gravity.
+
 	if not is_on_floor():
 		velocity.y += gravity * delta
 
-	# Handle jump.
+
 	if Input.is_action_pressed("P1_push"):
 		collision_layer = 1
 		collision_mask = 1
@@ -42,8 +42,7 @@ func _physics_process(delta):
 		collision_layer = 2
 		collision_mask = 2
 
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
+	
 	var direction = Input.get_axis("P1_left", "P1_right")
 	if direction and not Input.is_action_pressed('P1_push'):
 		velocity.x = direction * SPEED
@@ -96,7 +95,7 @@ func _shoot(perfect):
 	if ball_placement2.remote_path != NodePath(""):
 		ball_placement2.remote_path = NodePath("")
 		ball.held = false
-		#ball.thrown = true
+	
 		ball.linear_velocity.y = -shot_verticle
 		ball.linear_velocity.x = intital_horizontal_velocity
 	

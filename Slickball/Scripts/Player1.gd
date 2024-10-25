@@ -19,7 +19,7 @@ var shot_reverse = false
 
 @onready var hoop = get_node("/root/Node2D/P1_Hoop")
 
-# Get the gravity from the project settings to be synced with RigidBody nodes.
+
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 func _ready():
@@ -27,11 +27,11 @@ func _ready():
 	
 	
 func _physics_process(delta):
-	# Add the gravity.
+
 	if not is_on_floor():
 		velocity.y += gravity * delta
 
-	# Handle jump.
+
 	if Input.is_action_pressed("P2_push"):
 		collision_layer = 2
 		collision_mask = 2
@@ -43,8 +43,7 @@ func _physics_process(delta):
 		collision_layer = 1
 		collision_mask = 1
 
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
+
 	var direction = Input.get_axis("P2_left", "P2_right")
 	if direction and not Input.is_action_pressed('P2_push'):
 		velocity.x = direction * SPEED
@@ -81,7 +80,7 @@ func _physics_process(delta):
 	else: 
 		$Marker2D/StaticBody2D/Block.disabled = true
 	
-	#if Input.is_action_just_released("P1_Shoot"):
+
 		
 		
 	
